@@ -75,3 +75,21 @@ spec:
           editable: true
           options:
             path: /var/lib/grafana/dashboards/default
+    serviceMonitor:
+      enabled: true
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: "traefik"
+        external-dns/is-public: "true"
+        external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
+      hosts:
+      - "grafana.${SECRET_DOMAIN}"
+      tls:
+      - hosts:
+        - "grafana.${SECRET_DOMAIN}"
+    persistence:
+      enabled: true
+      existingClaim: grafana-pvc
+    podAnnotations:
+      configmap.reloader.stakater.com/reload: "grafana"
