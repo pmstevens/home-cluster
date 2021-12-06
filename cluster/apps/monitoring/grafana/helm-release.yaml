@@ -79,8 +79,12 @@ spec:
       enabled: true
     ingress:
       enabled: true
+      pathType: Prefix
+      ingressClassName: "traefik"
       annotations:
-        kubernetes.io/ingress.class: "traefik"
+        kubernetes.io/tls-acme: "true"
+        cert-manager.io/cluster-issuer: letsencrypt-production
+        traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         # external-dns/is-public: "true"
         # external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
       hosts:
@@ -88,6 +92,7 @@ spec:
       tls:
       - hosts:
         - "grafana.${SECRET_DOMAIN}"
+        secretName: grafana-cert
     persistence:
       enabled: true
       existingClaim: grafana-pvc
