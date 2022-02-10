@@ -75,6 +75,23 @@ spec:
           editable: true
           options:
             path: /var/lib/grafana/dashboards/default
+    sidecar:
+      dashboards:
+        enabled: true
+        searchNamespace: ALL
+      datasources:
+        enabled: true
+        defaultDatasourceEnabled: false
+        searchNamespace: ALL
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+          - name: Prometheus
+            type: prometheus
+            access: proxy
+            url: http://prometheus-prometheus:9090/
+            isDefault: true
     serviceMonitor:
       enabled: true
     ingress:
