@@ -104,6 +104,13 @@ spec:
             access: proxy
             url: http://prometheus-prometheus:9090/
             isDefault: true
+    plugins:
+      - natel-discrete-panel
+      - pr0ps-trackmap-panel
+      - grafana-piechart-panel
+      - vonage-status-panel
+      - grafana-worldmap-panel
+      - grafana-clock-panel
     serviceMonitor:
       enabled: true
     ingress:
