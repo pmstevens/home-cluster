@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: &app ask-mr-robot
+  namespace: default
+  labels:
+    app.kubernetes.io/name: *app
+    app.kubernetes.io/instance: *app
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: *app
+      app.kubernetes.io/instance: *app
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        configmap.reloader.stakater.com/reload: *app
+      labels:
+        app.kubernetes.io/name: *app
+        app.kubernetes.io/instance: *app
+    spec:
+      containers:
+        - name: *app
+          image: gaffneyc/askmrrobot
+          imagePullPolicy: IfNotPresent
+      volumeMounts:
+        - name: *app
+          mountPath: /AskMrRobotClient/settings.json
+          subPath: settings.json
+    volumes:
+      - name: *app
+        secret:
+          secretName: *app
+          defaultMode: 420
