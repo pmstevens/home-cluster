@@ -26,12 +26,12 @@ spec:
         - name: *app
           image: gaffneyc/askmrrobot
           imagePullPolicy: IfNotPresent
-      volumeMounts:
+          volumeMounts:
+            - name: *app
+              mountPath: /AskMrRobotClient/settings.json
+              subPath: settings.json
+      volumes:
         - name: *app
-          mountPath: /AskMrRobotClient/settings.json
-          subPath: settings.json
-    volumes:
-      - name: *app
-        secret:
-          secretName: *app
-          defaultMode: 420
+          secret:
+            secretName: *app
+            defaultMode: 420
