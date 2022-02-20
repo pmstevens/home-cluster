@@ -30,6 +30,13 @@ spec:
             - name: *app
               mountPath: /AskMrRobotClient/settings.json
               subPath: settings.json
+          resources:
+            requests:
+              memory: "250M"
+              cpu: "250m"
+            limits:
+              memory: "500M"
+              cpu: "500m"
       volumes:
         - name: *app
           secret:
