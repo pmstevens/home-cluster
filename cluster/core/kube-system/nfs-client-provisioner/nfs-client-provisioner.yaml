@@ -24,4 +24,4 @@ spec:
       server: "${NAS_IP}"
       path: "${NAS_NFS_PATH}"
     storageClass:
-      defaultClass: true
+      defaultClass: false
