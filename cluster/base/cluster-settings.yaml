@@ -5,6 +5,8 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
+  TIMEZONE: "Europe/London"
+
   METALLB_LB_RANGE: 192.168.30.100-192.168.30.199
   METALLB_TRAEFIK_ADDR: 192.168.30.100
   NAS_IP: 192.168.2.241
