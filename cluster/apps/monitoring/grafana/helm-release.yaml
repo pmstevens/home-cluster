@@ -81,6 +81,11 @@ spec:
           gnetId: 1860
           revision: 23
           datasource: Prometheus
+        # Ref: https://grafana.com/grafana/dashboards/13502
+        minio:
+          gnetId: 13502
+          revision: 10
+          datasource: Prometheus
     sidecar:
       dashboards:
         enabled: true
