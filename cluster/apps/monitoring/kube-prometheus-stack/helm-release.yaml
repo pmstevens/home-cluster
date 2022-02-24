@@ -126,7 +126,7 @@ spec:
           - job_name: minio
             honor_timestamps: true
             bearer_token: ${SECRET_MINIO_BEARER_TOKEN}
-            metrics_path: /minio/v2/metrics/cluster
+            metrics_path: /minio/prometheus/metrics
             static_configs:
               - targets:
                   - "${SECRET_MINIO_ENDPOINT}"        
