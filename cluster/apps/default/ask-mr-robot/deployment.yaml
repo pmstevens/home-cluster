@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: *app
-          image: ghcr.io/pmstevens/askmrrobot-docker:v1609
+          image: ghcr.io/pmstevens/askmrrobot-docker:v1610
           imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: *app
