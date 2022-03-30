@@ -26,6 +26,10 @@ spec:
           traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         hosts:
           core: harbor.${SECRET_DOMAIN}
+        tls:
+          - hosts:
+            - "harbor.${SECRET_DOMAIN}"
+            secretName: "harbor-tls"
     externalURL: https://harbor.${SECRET_DOMAIN}
 
     trivy:
