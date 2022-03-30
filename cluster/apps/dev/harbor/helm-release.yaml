@@ -8,11 +8,11 @@ spec:
   chart:
     spec:
       # registryUrl=https://helm.goharbor.io
-      chart: harbor-charts
+      chart: harbor
       version: 1.8.2
       sourceRef:
         kind: HelmRepository
-        name: harbor
+        name: harbor-charts
         namespace: flux-system
   values:
     expose:
