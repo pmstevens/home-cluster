@@ -65,7 +65,8 @@ spec:
       enabled: true
       serviceMonitor:
         enabled: true
-    snapshotsEnabled: true
+    # snapshotsEnabled: true
+    snapshotsEnabled: false
     deployRestic: true
     restic:
       podVolumePath: /var/lib/kubelet/pods
