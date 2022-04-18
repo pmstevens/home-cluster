@@ -36,6 +36,12 @@ spec:
           publicUrl: http://${SECRET_MINIO_ENDPOINT}
       resticTimeout: 4h
 
+      volumeSnapshotLocation:
+        provider: velero.io/aws
+        config: 
+          region: us-east-1
+          profile: default
+
     initContainers:
       - name: velero-plugin-for-aws
         image: ghcr.io/k8s-at-home/velero-plugin-for-aws:v1.4.1
@@ -65,8 +71,8 @@ spec:
       enabled: true
       serviceMonitor:
         enabled: true
-    # snapshotsEnabled: true
-    snapshotsEnabled: false
+    snapshotsEnabled: true
+    # snapshotsEnabled: false
     deployRestic: true
     restic:
       podVolumePath: /var/lib/kubelet/pods
