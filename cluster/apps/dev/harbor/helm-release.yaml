@@ -30,7 +30,7 @@ spec:
         tls:
           - hosts:
             - "harbor.${SECRET_DOMAIN}"
-            secretName: "harbor-tls"
+          secretName: "harbor-tls"
     externalURL: https://harbor.${SECRET_DOMAIN}
 
     trivy:
