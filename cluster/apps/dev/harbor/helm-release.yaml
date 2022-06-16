@@ -28,7 +28,7 @@ spec:
         hosts:
           core: harbor.${SECRET_DOMAIN}
         tls:
-          - hosts:
+        - hosts:
             - "harbor.${SECRET_DOMAIN}"
           secretName: "harbor-tls"
     externalURL: https://harbor.${SECRET_DOMAIN}
