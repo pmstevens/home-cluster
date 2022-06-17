@@ -24,8 +24,7 @@ spec:
       - ingress
     provider: cloudflare
     cloudflare:
-      secretName: cloudflare-api-key
-      email: "${SECRET_CLOUDFLARE_EMAIL}"
+      secretName: cloudflare_api_token
       proxied: true
     policy: sync
     txtPrefix: "k8s."
