@@ -17,9 +17,12 @@ spec:
         namespace: flux-system
   values:
     expose:
+      type: ingress
       tls:
-        # The ingress controller has a default certificate so we don't need to configure it
-        certSource: none
+        certSource: auto
+        secret:
+          secretName: "harbor-tls"
+          notarySecretName: "harbor-notary-tls"
       ingress:
         className: "traefik"
         annotations:
@@ -29,10 +32,7 @@ spec:
           external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
         hosts:
           core: harbor.${SECRET_DOMAIN}
-        tls:
-        - hosts:
-            - "harbor.${SECRET_DOMAIN}"
-          secretName: "harbor-tls"
+          notary: harbor-notary.${SECRET_DOMAIN}
     externalURL: https://harbor.${SECRET_DOMAIN}
 
     trivy:
