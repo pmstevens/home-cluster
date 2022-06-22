@@ -43,5 +43,5 @@ spec:
     extraEnvVars: 
       - name: KEYCLOAK_PROXY_ADDRESS_FORWARDING
         value: "true"
-      - name: KEYCLOAK_FRONTEND_URL
-        value: "https://auth.${SECRET_DOMAIN}"
+      - name: KC_HOSTNAME
+        value: "auth.${SECRET_DOMAIN}"
