@@ -28,7 +28,7 @@ spec:
         cert-manager.io/cluster-issuer: letsencrypt-production
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
         kubernetes.io/tls-acme: "true"
-      #  external-dns/is-public: "true"
+        external-dns/is-public: "true"
         external-dns.alpha.kubernetes.io/target: "ipv4.${SECRET_DOMAIN}"
       hostname: auth.${SECRET_DOMAIN}
       paths:
