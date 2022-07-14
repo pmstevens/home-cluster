@@ -18,7 +18,7 @@ spec:
       interval: 5m
   values:
     image:
-      repository: gcr.io/k8s-staging-sig-storage/nfs-subdir-external-provisioner
+      repository: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner
       tag: v4.0.2
     nfs:
       server: "${NAS_IP}"
